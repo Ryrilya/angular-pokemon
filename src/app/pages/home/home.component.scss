@@ -1,0 +1,53 @@
+.home {
+  position: relative;
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  max-height: 100vh;
+
+  background-image: url('/assets/images/backgrounds/home_background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+
+  &__overlay {
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+
+    position: absolute;
+    z-index: 1;
+
+    animation: fadeIn;
+    animation-duration: 2s;
+  }
+
+  &__container {
+    min-width: inherit;
+    min-height: inherit;
+    position: absolute;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 30vw;
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__searchbar {
+    width: 100%;
+    height: 4rem;
+    max-width: 30vw;
+  }
+}

@@ -1,0 +1,10 @@
+<label *ngIf="label && label !== ''" [for]="id" class="input__label">{{
+  label
+}}</label>
+<input
+  type="text"
+  name="search"
+  class="input"
+  [id]="id"
+  [placeholder]="placeholder"
+/>
