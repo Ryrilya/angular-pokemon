@@ -1,0 +1,15 @@
+.pokemon-card {
+  &__container {
+    max-width: 300px;
+  }
+
+  &__image {
+    width: 100%;
+
+    &-container {
+      position: relative;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.pokemon-grid {
+  &__cards-container {
+    min-width: 100%;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

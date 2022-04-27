@@ -9,6 +9,8 @@ export class InputComponent implements OnInit {
   @Input() id!: string;
   @Input() label!: string;
   @Input() placeholder!: string;
+  @Input() name!: string;
+  @Input() list!: string;
 
   constructor() {}
 

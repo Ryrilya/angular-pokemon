@@ -12,13 +12,35 @@
 html,
 body {
   font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+.container {
+  padding: 5rem;
 }
 
 .title {
-  color: #fff;
-
-  &.title--h1 {
-    font-size: 5rem;
-  }
+  color: #2a2a2a;
+  font-weight: bold;
 }
 
+h1,
+.title.title--h1 {
+  font-size: 5rem;
+}
+h2
+.title.title--h2  {
+  font-size: 3rem;
+}
+h3,
+.title.title--h3  {
+  font-size: 2rem;
+}
+h4,
+.title.title--h4  {
+  font-size: 1.5rem;
+}
+h5,
+.title.title--h5  {
+  font-size: 1.25rem;
+}

@@ -1,0 +1,27 @@
+<section class="home-hero">
+  <div class="home-hero__overlay animate__animated animate__fadeIn"></div>
+
+  <div class="home-hero__content-container">
+    <div class="home-hero__content">
+      <h1
+        class="home-hero__title title title--h1 animate__animated animate__fadeInDown"
+      >
+        Gotta catch'em all!
+      </h1>
+      <app-datalist
+        name="pokemonList"
+        placeholder="Cerca un pokémon"
+        inputId="pokemon-list-search"
+        list="pokemon-list"
+        [items]="['Bulbasaur', 'Ivysaur', 'Venusaur']"
+      ></app-datalist>
+    </div>
+  </div>
+
+  <a href="#pokemon-grid">
+    <fa-icon
+      [icon]="faCircleChevronDown"
+      class="home-hero__scroll-indicator animate__animated animate__shakeY"
+    ></fa-icon>
+  </a>
+</section>

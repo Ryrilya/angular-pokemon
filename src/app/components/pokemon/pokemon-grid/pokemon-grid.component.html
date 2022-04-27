@@ -1,0 +1,13 @@
+<section id="pokemon-grid" class="container pokemon-grid">
+  <h3 class="pokemon-grid__title title">Lista pokémon</h3>
+
+  <div
+    class="pokemon-grid__cards-container"
+    *ngIf="pokemonList && pokemonList.length > 0"
+  >
+    <pokemon-card
+      *ngFor="let pokemon of pokemonList"
+      [pokemon]="pokemon"
+    ></pokemon-card>
+  </div>
+</section>
