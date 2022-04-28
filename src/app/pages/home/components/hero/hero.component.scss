@@ -57,6 +57,7 @@
     bottom: 1rem;
     z-index: 1;
 
+    text-decoration: none;
     min-width: 100%;
     text-align: center;
     color: #fff;
@@ -65,5 +66,10 @@
     animation-name: shakeY;
     animation-delay: 2s;
     animation-duration: 1.5s;
+
+    &-text {
+      font-size: 1rem;
+      text-decoration: none;
+    }
   }
 }

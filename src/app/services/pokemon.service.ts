@@ -20,10 +20,13 @@ export class PokemonService {
   constructor(private http: HttpClient) {}
 
   getPokemonList(
-    limit?: number
+    limit?: number,
+    offset?: number
   ): Observable<PaginationResponse<PokemonListItem>> {
     return this.http.get<PaginationResponse<PokemonListItem>>(
-      `${this.apiUrl}${limit ?? ''}`
+      `${this.apiUrl}?${limit ? `limit=${limit}` : ''}${
+        offset ? `&offset=${offset}` : ''
+      }`
     );
   }
 

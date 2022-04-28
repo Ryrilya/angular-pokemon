@@ -1,0 +1,31 @@
+.pokemon-type-pill {
+  background-color: #eee;
+  border-radius: .5rem;
+  padding: .5rem .8rem;
+  text-transform: capitalize;
+
+  &--grass {
+    background-color: green;
+    color: #fff;
+  }
+  &--poison {
+    background-color: purple;
+    color: #fff;
+  }
+  &--fire {
+    background-color: orange;
+    color: #fff;
+  }
+  &--water {
+    background-color: blue;
+    color: #fff;
+  }
+  &--flying {
+    background-color: lightblue;
+    color: #fff;
+  }
+  &--bug {
+    background-color: lightgreen;
+    color: #fff;
+  }
+}

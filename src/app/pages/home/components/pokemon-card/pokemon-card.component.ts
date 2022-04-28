@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { PokemonDetails } from 'src/app/models/PokemonDetails';
 import { PokemonListItem } from 'src/app/models/PokemonListItem';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -13,7 +14,7 @@ export class PokemonCardComponent implements OnInit {
   pokemonDetails!: PokemonDetails;
   name: string = '';
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(private pokemonService: PokemonService, private store: Store) {}
 
   ngOnInit(): void {
     this.name = this.pokemon.name;
