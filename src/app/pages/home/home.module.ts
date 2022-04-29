@@ -9,6 +9,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StoreModule } from '@ngrx/store';
 import { homeReducer } from './store/home.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { HomeEffects } from './store/home.effects';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { homeReducer } from './store/home.reducer';
     SharedModule,
     FontAwesomeModule,
     StoreModule.forFeature('home', homeReducer),
+    EffectsModule.forFeature([HomeEffects]),
   ],
   exports: [HeroComponent],
 })

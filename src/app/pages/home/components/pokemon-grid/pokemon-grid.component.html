@@ -1,30 +1,30 @@
 <section id="pokemon-grid" class="container pokemon-grid">
-  <div class="pokemon-grid__title-container">
-    <h3 class="pokemon-grid__title title">Lista pokémon</h3>
-  </div>
+  <header>
+    <div class="pokemon-grid__title-container">
+      <h3 class="pokemon-grid__title title">Lista pokémon</h3>
+    </div>
 
-  <div class="pagination" *ngIf="pokemonList && pokemonList.length > 0">
-    <button type="button" class="btn" [disabled]="page$ === 0" (click)="prev()">
-      Previous
-    </button>
-    <p>{{ page$ }}</p>
-    <button
-      type="button"
-      class="btn"
-      [disabled]="page$ === pokemonList.length"
-      (click)="next()"
-    >
-      Next
-    </button>
-  </div>
+    <pagination
+      [itemsPerPage]="itemsPerPage"
+      [currentPage]="page"
+      [prevDisabled]="page === 0"
+      (onNext)="onNextHandler()"
+      (onPrev)="onPrevHandler()"
+    ></pagination>
+  </header>
 
   <div
     class="pokemon-grid__cards-container"
-    *ngIf="pokemonList && pokemonList.length > 0"
+    *ngIf="pokemonList$ | async as pokemonList"
   >
     <pokemon-card
       *ngFor="let pokemon of pokemonList"
       [pokemon]="pokemon"
     ></pokemon-card>
+  </div>
+
+  <div *ngIf="(error$ | async) !== ''">
+    <p>ERRORE</p>
+    <pre>{{ error$ | async }}</pre>
   </div>
 </section>

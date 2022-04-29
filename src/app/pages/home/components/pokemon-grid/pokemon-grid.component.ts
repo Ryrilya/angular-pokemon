@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { AppState } from 'src/app/models/AppState';
+import { Store } from '@ngrx/store';
+import { combineLatest, Observable } from 'rxjs';
 import { PokemonListItem } from 'src/app/models/PokemonListItem';
-import { PokemonService } from 'src/app/services/pokemon.service';
-import { updatePage } from '../../store/home.actions';
-import { itemsPerPageSelector, pageSelector } from '../../store/home.selectors';
+import * as HomeActions from '../../store/home.actions';
+import * as HomeSelectors from '../../store/home.selectors';
+import { State } from '../../store/home.reducer';
 
 @Component({
   selector: 'pokemon-grid',
@@ -13,34 +12,48 @@ import { itemsPerPageSelector, pageSelector } from '../../store/home.selectors';
   styleUrls: ['./pokemon-grid.component.scss'],
 })
 export class PokemonGridComponent implements OnInit {
-  pokemonList: PokemonListItem[] = [];
-  page$!: number;
-  itemsPerPage$!: number;
+  pokemonList$!: Observable<PokemonListItem[]>;
+  error$!: Observable<string>;
+  itemsPerPage!: number;
+  page!: number;
 
-  constructor(
-    private pokemonService: PokemonService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private store: Store<State>) {}
 
   ngOnInit(): void {
-    this.store.select(pageSelector).subscribe((page) => (this.page$ = page));
+    // this.page subscriber
     this.store
-      .select(itemsPerPageSelector)
-      .subscribe((itemsPerPage) => (this.itemsPerPage$ = itemsPerPage));
+      .select(HomeSelectors.pageSelector)
+      .subscribe((page) => (this.page = page));
 
-    this.pokemonService
-      .getPokemonList(this.itemsPerPage$)
-      .subscribe((list) => (this.pokemonList = list.results));
+    // this.itemsPerPage subscriber
+    this.store
+      .select(HomeSelectors.itemsPerPageSelector)
+      .subscribe((itemsPerPage) => (this.itemsPerPage = itemsPerPage));
+
+    this.error$ = this.store.select(HomeSelectors.errorSelector);
+
+    this.pokemonList$ = this.store.select(HomeSelectors.pokemonListSelector);
+    this.store.dispatch(HomeActions.loadPokemonList({}));
   }
 
-  next(): void {
-    this.store.dispatch(updatePage({ value: this.page$ + 1 }));
-    this.pokemonService
-      .getPokemonList(this.itemsPerPage$, this.itemsPerPage$ * (this.page$ + 1))
-      .subscribe((list) => (this.pokemonList = list.results));
+  // Event Handlers
+  onNextHandler(): void {
+    this.store.dispatch(HomeActions.updatePage({ value: this.page + 1 }));
+    this.store.dispatch(
+      HomeActions.loadPokemonList({
+        limit: this.itemsPerPage,
+        offset: this.page * this.itemsPerPage,
+      })
+    );
   }
 
-  prev(): void {
-    this.store.dispatch(updatePage({ value: this.page$ - 1 }));
+  onPrevHandler(): void {
+    this.store.dispatch(HomeActions.updatePage({ value: this.page - 1 }));
+    this.store.dispatch(
+      HomeActions.loadPokemonList({
+        limit: this.itemsPerPage,
+        offset: this.page * this.itemsPerPage,
+      })
+    );
   }
 }

@@ -9,7 +9,7 @@
     &-container {
       align-self: flex-start;
       border-bottom: 2px solid #2a2a2a;
-      padding-bottom: .5rem;
+      padding-bottom: 0.5rem;
     }
   }
 
@@ -22,14 +22,11 @@
     row-gap: 2rem;
     justify-items: center;
   }
-}
 
-.pagination {
-  min-width: 30vw;
-  max-width: 30vw;
-  margin-top: 3rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

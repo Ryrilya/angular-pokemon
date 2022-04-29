@@ -24,7 +24,7 @@ export class PokemonService {
     offset?: number
   ): Observable<PaginationResponse<PokemonListItem>> {
     return this.http.get<PaginationResponse<PokemonListItem>>(
-      `${this.apiUrl}?${limit ? `limit=${limit}` : ''}${
+      `${this.apiUrl}${limit ? `?limit=${limit}` : ''}${
         offset ? `&offset=${offset}` : ''
       }`
     );

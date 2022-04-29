@@ -1,0 +1,32 @@
+<div class="pagination">
+  <my-button
+    class="pagination__btn pagination__btn--prev"
+    [disabled]="prevDisabled"
+    (click)="prev()"
+    text="Indietro"
+    [icon]="iconLeft"
+    iconPosition="left"
+  ></my-button>
+
+  <div
+    class="pagination__middle-content"
+    *ngIf="itemsPerPage && currentPage !== null"
+  >
+    <p>Da</p>
+    <p class="pagination__from-to">
+      #{{ itemsPerPage * (currentPage + 1) - itemsPerPage + 1 }}
+    </p>
+
+    <p>a</p>
+    <p class="pagination__from-to">#{{ itemsPerPage * (currentPage + 1) }}</p>
+  </div>
+
+  <my-button
+    class="pagination__btn pagination__btn--next"
+    [disabled]="nextDisabled"
+    (click)="next()"
+    text="Avanti"
+    [icon]="iconRight"
+    iconPosition="right"
+  ></my-button>
+</div>

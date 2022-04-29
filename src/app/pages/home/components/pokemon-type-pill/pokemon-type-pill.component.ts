@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { pokemonTypes } from 'src/app/constants/pokemon-types';
 
 @Component({
   selector: 'pokemon-type-pill',
@@ -7,8 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PokemonTypePillComponent implements OnInit {
   @Input() type!: string;
+  translatedType: string = '';
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.translatedType = pokemonTypes.get(this.type)!;
+  }
 }
