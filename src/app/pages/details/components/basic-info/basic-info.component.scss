@@ -1,0 +1,31 @@
+.basic-info {
+  min-width: 30vw;
+  max-width: 30vw;
+  margin-top: 2rem;
+  background-color: #fff;
+  border-radius: 1.5rem;
+  padding: 1rem 2rem 2rem 2rem;
+
+  &__pokemon-name {
+    text-transform: capitalize;
+    line-height: 1.8;
+  }
+
+  &__pokemon-genera {
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+    color: #aaa;
+  }
+
+  &__id-and-types {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__types {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

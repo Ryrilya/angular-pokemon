@@ -12,7 +12,13 @@
   align-items: center;
   gap: 0.5rem;
 
+  transition: transform 0.3s ease;
+
   &:disabled {
     opacity: 0.5;
+  }
+
+  &:not(&:disabled):hover {
+    transform: translateY(-5px);
   }
 }

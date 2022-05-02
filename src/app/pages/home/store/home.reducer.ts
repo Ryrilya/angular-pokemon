@@ -2,6 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import * as HomeActions from './home.actions';
 import * as AppState from 'src/app/models/AppState';
 import { PokemonListItem } from 'src/app/models/PokemonListItem';
+import { PokemonDetails } from 'src/app/models/PokemonDetails';
 
 // This slice of store is lazy loaded
 export interface State extends AppState.State {
@@ -40,6 +41,7 @@ export const homeReducer = createReducer<HomeState>(
   ),
   on(
     HomeActions.loadPokemonListFailure,
+    HomeActions.loadPokemonDetailsFailure,
     (state, { error }): HomeState => ({ ...state, pokemonList: [], error })
   )
 );

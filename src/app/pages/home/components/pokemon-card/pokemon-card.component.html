@@ -1,24 +1,32 @@
-<div class="pokemon-card__container" *ngIf="pokemonDetails">
-  <div class="pokemon-card__image-container">
-    <img
-      [src]="pokemonDetails.sprites.other?.['official-artwork']?.front_default"
-      class="pokemon-card__image"
-    />
-  </div>
-
-  <div class="pokemon-card__content">
-    <div class="pokemon-card__name-number">
-      <p class="pokemon-card__name title title--h5">
-        {{ name }}
-      </p>
-      <p class="pokemon-card__number">#{{ pokemonDetails.id }}</p>
+<a [routerLink]="detailsUrlPath" class="pokemon-card__link">
+  <div class="pokemon-card__container" *ngIf="pokemonDetails">
+    <div class="pokemon-card__image-container">
+      <img
+        [src]="pokemonDetails.sprites.other?.['official-artwork']?.front_default"
+        class="pokemon-card__image"
+      />
     </div>
 
-    <div class="pokemon-card__types">
-      <pokemon-type-pill
-        *ngFor="let item of pokemonDetails.types"
-        [type]="item.type.name"
-      ></pokemon-type-pill>
+    <div class="pokemon-card__content">
+      <div class="pokemon-card__name-number">
+        <p class="pokemon-card__name title title--h5">
+          {{ name }}
+        </p>
+        <p class="pokemon-card__number">#{{ pokemonDetails.id }}</p>
+      </div>
+
+      <div class="pokemon-card__ability-container">
+        <p class="pokemon-card__abilty">
+          Abilità: <span>{{ pokemonDetails.abilities[0].ability.name }}</span>
+        </p>
+      </div>
+
+      <div class="pokemon-card__types">
+        <pokemon-type-pill
+          *ngFor="let item of pokemonDetails.types"
+          [type]="item.type.name"
+        ></pokemon-type-pill>
+      </div>
     </div>
   </div>
-</div>
+</a>

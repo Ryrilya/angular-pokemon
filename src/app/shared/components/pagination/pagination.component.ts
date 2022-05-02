@@ -1,10 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import {
-  faArrowLeft,
-  faArrowRight,
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/pages/home/store/home.reducer';
+import * as HomeSelectors from 'src/app/pages/home/store/home.selectors';
 
 @Component({
   selector: 'pagination',
@@ -20,8 +18,13 @@ export class PaginationComponent implements OnInit {
   @Output() onPrev: EventEmitter<undefined> = new EventEmitter();
   iconLeft = faArrowLeft;
   iconRight = faArrowRight;
+  pokemonSprites!: [string, string];
 
-  constructor() {}
+  constructor(private store: Store<State>) {
+    this.store.select(HomeSelectors.pokemonListSelector).subscribe((list) => {
+      // this.pokemonSprites[0] = list[0].
+    });
+  }
 
   ngOnInit(): void {}
 

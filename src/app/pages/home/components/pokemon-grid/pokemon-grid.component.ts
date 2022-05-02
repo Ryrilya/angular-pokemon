@@ -5,6 +5,7 @@ import { PokemonListItem } from 'src/app/models/PokemonListItem';
 import * as HomeActions from '../../store/home.actions';
 import * as HomeSelectors from '../../store/home.selectors';
 import { State } from '../../store/home.reducer';
+import { PokemonDetails } from 'src/app/models/PokemonDetails';
 
 @Component({
   selector: 'pokemon-grid',

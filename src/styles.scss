@@ -1,18 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
-@use '~animate.css/animate.min';
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap');
+@use "~animate.css/animate.min";
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap");
+
+$types-colors: (
+  "normal": #bfbfb3,
+  "poison": #ab5da1,
+  "psychic": #fa65b6,
+  "grass": #8dd651,
+  "ground": #eec957,
+  "ice": #95f1fe,
+  "fire": #fa5542,
+  "rock": #cebc72,
+  "dragon": #8b76fe,
+  "water": #55affe,
+  "bug": #c3d21f,
+  "dark": #8f6a57,
+  "fighting": #a55645,
+  "ghost": #7975d6,
+  "steel": #c4c2da,
+  "flying": #7aa4ff,
+  "electric": #fce53d,
+  "fairy": #faadff,
+);
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 
 html,
 body {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .container {
@@ -28,19 +50,18 @@ h1,
 .title.title--h1 {
   font-size: 5rem;
 }
-h2
-.title.title--h2  {
+h2 .title.title--h2 {
   font-size: 3rem;
 }
 h3,
-.title.title--h3  {
+.title.title--h3 {
   font-size: 2rem;
 }
 h4,
-.title.title--h4  {
+.title.title--h4 {
   font-size: 1.5rem;
 }
 h5,
-.title.title--h5  {
+.title.title--h5 {
   font-size: 1.25rem;
 }

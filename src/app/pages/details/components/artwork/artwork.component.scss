@@ -1,0 +1,30 @@
+@use "../../../../../styles.scss" as global;
+
+.artwork {
+  position: relative;
+
+  background-color: #fff;
+  border-radius: 50%;
+
+  &__sprite-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    width: 25%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background-color: #fff;
+    border: 3px solid;
+
+    @each $type, $color in global.$types-colors {
+      &--#{$type} {
+        border-color: darken($color, 20%);
+      }
+    }
+  }
+}

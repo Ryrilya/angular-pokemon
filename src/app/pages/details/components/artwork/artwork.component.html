@@ -1,0 +1,16 @@
+<div class="artwork">
+  <img
+    *ngIf="officialArtwork"
+    [src]="officialArtwork"
+    class="artwork__official-artwork"
+  />
+
+  <div
+    [class]="[
+      'artwork__sprite-container',
+      'artwork__sprite-container--' + pokemonType
+    ]"
+  >
+    <img *ngIf="sprite" [src]="sprite" class="artwork__sprite" />
+  </div>
+</div>

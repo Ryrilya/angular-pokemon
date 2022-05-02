@@ -1,0 +1,64 @@
+@use "../../../../../styles.scss" as global;
+
+.details-hero {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__back-btn {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+
+    text-decoration: none;
+  }
+
+  &__top-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__height-and-weight,
+  &__bio {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    min-width: 250px;
+    max-width: 300px;
+
+    .details-hero__height,
+    .details-hero__weight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    div:not(div:first-child) {
+      margin-top: 1rem;
+    }
+  }
+
+  &__bio {
+    p {
+      margin-top: 1rem;
+    }
+  }
+
+  &__waves {
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+
+    min-width: 100vw;
+
+    @each $type, $color in global.$types-colors {
+      &--#{$type} {
+        background-color: darken($color, 20%);
+      }
+    }
+  }
+}

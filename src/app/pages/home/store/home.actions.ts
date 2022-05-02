@@ -1,5 +1,6 @@
 import { PokemonListItem } from 'src/app/models/PokemonListItem';
 import { createAction, props } from '@ngrx/store';
+import { PokemonDetails } from 'src/app/models/PokemonDetails';
 
 // Pagination
 export const updatePage = createAction(
@@ -25,5 +26,21 @@ export const loadPokemonListSuccess = createAction(
 
 export const loadPokemonListFailure = createAction(
   '[Home] Load Pokemon List Fail',
+  props<{ error: string }>()
+);
+
+// Pokemon details
+export const loadPokemonDetails = createAction(
+  '[Home] Load Pokemon Details',
+  props<{ by: 'name' | 'id' | 'url'; value: string }>()
+);
+
+export const loadPokemonDetailsSuccess = createAction(
+  '[Home] Load Pokemon Details - Success',
+  props<{ pokemon: PokemonDetails }>()
+);
+
+export const loadPokemonDetailsFailure = createAction(
+  '[Home] Load Pokemon Details - Failure',
   props<{ error: string }>()
 );

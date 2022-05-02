@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PokemonListItem } from '../models/PokemonListItem';
 import { PokemonDetails } from '../models/PokemonDetails';
+import { PokemonSpecies } from '../models/PokemonSpecies';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,11 +31,25 @@ export class PokemonService {
     );
   }
 
+  // Details
   getPokemonDetailsFromName(name: string): Observable<PokemonDetails> {
     return this.http.get<PokemonDetails>(`${this.apiUrl}/${name}`);
   }
 
   getPokemonDetailsFromUrl(url: string): Observable<PokemonDetails> {
     return this.http.get<PokemonDetails>(url);
+  }
+
+  getPokemonDetailsFromId(id: number): Observable<PokemonDetails> {
+    return this.http.get<PokemonDetails>(`${this.apiUrl}/${id}`);
+  }
+
+  // Species
+  getPokemonSpeciesByName(name: string): Observable<PokemonSpecies> {
+    return this.http.get<PokemonSpecies>(`${this.apiUrl}-species/${name}`);
+  }
+
+  getPokemonSpeciesById(id: number): Observable<PokemonSpecies> {
+    return this.http.get<PokemonSpecies>(`${this.apiUrl}-species/${id}`);
   }
 }

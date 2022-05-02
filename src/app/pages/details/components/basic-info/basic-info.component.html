@@ -1,0 +1,15 @@
+<div class="basic-info">
+  <h1 class="basic-info__pokemon-name">{{ pokemon.name }}</h1>
+  <h4 class="basic-info__pokemon-genera">{{ pokemonGenera }}</h4>
+
+  <span class="basic-info__id-and-types">
+    <p>#{{ pokemon.id }}</p>
+
+    <div class="basic-info__types">
+      <pokemon-type-pill
+        *ngFor="let item of pokemon.types"
+        [type]="item.type.name"
+      ></pokemon-type-pill>
+    </div>
+  </span>
+</div>

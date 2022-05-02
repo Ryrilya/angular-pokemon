@@ -18,3 +18,24 @@ export const pokemonTypes = new Map<string, string>([
   ['electric', 'elettro'],
   ['fairy', 'folletto'],
 ]);
+
+export const pokemonTypesColors = new Map<string, string>([
+  ['normal', '#bfbfb3'],
+  ['poison', '#ab5da1'],
+  ['psychic', '#fa65b6'],
+  ['grass', '#8dd651'],
+  ['ground', '#eec957'],
+  ['ice', '#95f1fe'],
+  ['fire', '#fa5542'],
+  ['rock', '#cebc72'],
+  ['dragon', '#8b76fe'],
+  ['water', '#55affe'],
+  ['bug', '#c3d21f'],
+  ['dark', '#8f6a57'],
+  ['fighting', '#a55645'],
+  ['ghost', '#7975d6'],
+  ['steel', '#c4c2da'],
+  ['flying', '#7aa4ff'],
+  ['electric', '#fce53d'],
+  ['fairy', '#faadff'],
+]);

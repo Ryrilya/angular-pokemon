@@ -1,19 +1,18 @@
 .input {
   min-width: 100%;
-  height: 100%;
-  padding: .8rem 1rem;
+  padding: 0.8rem 1rem;
 
   border: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 
   &:focus {
     outline-width: 1px;
     outline-style: solid;
-    outline-color: #1B4AF0;
+    outline-color: #1b4af0;
   }
 
   &__label {
     font-size: 1rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 }

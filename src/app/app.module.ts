@@ -9,6 +9,8 @@ import { HomeModule } from './pages/home/home.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { DetailsComponent } from './pages/details/details.component';
+import { DetailsModule } from './pages/details/details.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
+    DetailsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
