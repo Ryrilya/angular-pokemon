@@ -1,0 +1,12 @@
+<div class="stat-card">
+  <fa-icon
+    [icon]="stat.icon"
+    class="stat-card__top-content stat-card__icon"
+    [style.color]="pokemonColor"
+  ></fa-icon>
+
+  <div class="stat-card__bottom-content">
+    <p class="stat-card__name">{{ stat.name }}</p>
+    <p class="stat-card__value">{{ stat.value }}</p>
+  </div>
+</div>

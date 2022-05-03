@@ -4,45 +4,62 @@
   </a>
 
   <div class="details-hero__top-content">
-    <div class="details-hero__height-and-weight">
-      <div class="details-hero__height">
-        <h5>
-          <fa-icon [icon]="faArrowsUpDown"></fa-icon>
-          Altezza
-        </h5>
-        <p>{{ pokemon.height / 10 }} m</p>
+    <div class="details-hero__top-content--left">
+      <div class="details-hero__height-and-weight">
+        <div class="details-hero__height">
+          <h5>
+            <fa-icon
+              [icon]="faArrowsUpDown"
+              [style.color]="pokemonColor"
+            ></fa-icon>
+            Altezza
+          </h5>
+          <p>{{ pokemon.height / 10 }} m</p>
+        </div>
+
+        <div class="details-hero__weight">
+          <h5>
+            <fa-icon [icon]="faDumbbell" [style.color]="pokemonColor"></fa-icon>
+            Peso
+          </h5>
+          <p>{{ pokemon.weight / 10 }} kg</p>
+        </div>
       </div>
 
-      <div class="details-hero__weight">
+      <div class="details-hero__gender">
         <h5>
-          <fa-icon [icon]="faDumbbell"></fa-icon>
-          Peso
+          <fa-icon
+            [icon]="faMarsAndVenus"
+            [style.color]="pokemonColor"
+          ></fa-icon>
+          Sesso
         </h5>
-        <p>{{ pokemon.weight / 10 }} kg</p>
+
+        <div class="details-hero__gender-boxes" *ngIf="gender">
+          <div class="details-hero__gender-box" [style.width.px]="maleRatio">
+            {{ maleRatio }}
+          </div>
+        </div>
       </div>
     </div>
 
-    <artwork [pokemon]="pokemon"></artwork>
+    <artwork></artwork>
 
     <div class="details-hero__bio">
       <h4>
-        <fa-icon [icon]="faAlignJustify"></fa-icon>
+        <fa-icon [icon]="faAlignJustify" [style.color]="pokemonColor"></fa-icon>
         Bio
       </h4>
       <p>{{ bio }}</p>
     </div>
   </div>
 
-  <details-basic-info
-    [pokemon]="pokemon"
-    [species]="species"
-    style="z-index: 1"
-  ></details-basic-info>
+  <details-basic-info style="z-index: 1"></details-basic-info>
 
   <div class="details-hero__waves">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
-        [attr.fill]="waveColor"
+        [attr.fill]="pokemonColor"
         fill-opacity="1"
         d="M0,160L48,144C96,128,192,96,288,96C384,96,480,128,576,170.7C672,213,768,267,864,261.3C960,256,1056,192,1152,176C1248,160,1344,192,1392,208L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
       ></path>

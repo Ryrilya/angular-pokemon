@@ -1,0 +1,27 @@
+.stat-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &__icon {
+    font-size: 2rem;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    color: #aaa;
+    font-weight: bold;
+  }
+
+  &__value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2a2a2a;
+  }
+}

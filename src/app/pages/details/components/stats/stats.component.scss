@@ -1,0 +1,55 @@
+$stats: (
+  hp: #ff5959,
+  attack: #f5ac78,
+  defense: #fae078,
+  special-attack: #9db7f5,
+  special-defense: #a7db8d,
+  speed: #fa92b2,
+);
+
+.stats {
+  min-width: 100%;
+  padding: 5rem;
+
+  &__title {
+    color: #fff;
+
+    &-container {
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #fff;
+      max-width: 15vw;
+    }
+  }
+
+  &__cards-container {
+    min-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+
+    margin-top: 2rem;
+  }
+
+  &__card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    &-label {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: capitalize;
+
+      @each $stat, $color in list {
+        &--#{$stat} {
+          color: $color;
+        }
+      }
+    }
+  }
+}

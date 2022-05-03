@@ -10,8 +10,8 @@
 
   &__back-btn {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    top: 5rem;
+    left: 5rem;
 
     text-decoration: none;
   }
@@ -20,10 +20,17 @@
     display: flex;
     align-items: center;
     gap: 2rem;
+
+    &--left {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
   }
 
   &__height-and-weight,
-  &__bio {
+  &__bio,
+  &__gender {
     background-color: #fff;
     padding: 1rem 2rem;
     border-radius: 1rem;
@@ -45,6 +52,27 @@
   &__bio {
     p {
       margin-top: 1rem;
+    }
+  }
+
+  &__gender {
+    &-boxes {
+      border-radius: 0.5rem;
+      background-color: #ffbbc6;
+      height: 30px;
+    }
+
+    &-box {
+      background-color: #5353ff;
+      border-radius: 0.5rem;
+      border-radius: 0.5rem;
+      color: #fff;
+      min-height: 100%;
+      font-size: 0.9rem;
+      padding: 0.25rem 0.5rem;
+
+      display: flex;
+      align-items: center;
     }
   }
 

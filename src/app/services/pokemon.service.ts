@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { PokemonListItem } from '../models/PokemonListItem';
 import { PokemonDetails } from '../models/PokemonDetails';
 import { PokemonSpecies } from '../models/PokemonSpecies';
+import { PokemonGender } from '../models/PokemonGender';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PokemonService {
-  private apiUrl = 'https://pokeapi.co/api/v2/pokemon';
+  private apiUrl = 'https://pokeapi.co/api/v2';
 
   constructor(private http: HttpClient) {}
 
@@ -25,7 +26,7 @@ export class PokemonService {
     offset?: number
   ): Observable<PaginationResponse<PokemonListItem>> {
     return this.http.get<PaginationResponse<PokemonListItem>>(
-      `${this.apiUrl}${limit ? `?limit=${limit}` : ''}${
+      `${this.apiUrl}/pokemon${limit ? `?limit=${limit}` : ''}${
         offset ? `&offset=${offset}` : ''
       }`
     );
@@ -33,7 +34,7 @@ export class PokemonService {
 
   // Details
   getPokemonDetailsFromName(name: string): Observable<PokemonDetails> {
-    return this.http.get<PokemonDetails>(`${this.apiUrl}/${name}`);
+    return this.http.get<PokemonDetails>(`${this.apiUrl}/pokemon/${name}`);
   }
 
   getPokemonDetailsFromUrl(url: string): Observable<PokemonDetails> {
@@ -41,15 +42,28 @@ export class PokemonService {
   }
 
   getPokemonDetailsFromId(id: number): Observable<PokemonDetails> {
-    return this.http.get<PokemonDetails>(`${this.apiUrl}/${id}`);
+    return this.http.get<PokemonDetails>(`${this.apiUrl}/pokemon/${id}`);
   }
 
   // Species
   getPokemonSpeciesByName(name: string): Observable<PokemonSpecies> {
-    return this.http.get<PokemonSpecies>(`${this.apiUrl}-species/${name}`);
+    return this.http.get<PokemonSpecies>(
+      `${this.apiUrl}/pokemon-species/${name}`
+    );
   }
 
   getPokemonSpeciesById(id: number): Observable<PokemonSpecies> {
-    return this.http.get<PokemonSpecies>(`${this.apiUrl}-species/${id}`);
+    return this.http.get<PokemonSpecies>(
+      `${this.apiUrl}/pokemon-species/${id}`
+    );
+  }
+
+  // Gender
+  getPokemonGenderByName(name: string): Observable<PokemonGender> {
+    return this.http.get<PokemonGender>(`${this.apiUrl}/gender/${name}`);
+  }
+
+  getPokemonGenderById(id: number): Observable<PokemonGender> {
+    return this.http.get<PokemonGender>(`${this.apiUrl}/gender/${id}`);
   }
 }

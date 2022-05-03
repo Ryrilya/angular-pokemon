@@ -1,3 +1,15 @@
-<section class="stats">
-  <h2>Statistiche</h2>
+<section class="stats" *ngIf="stats">
+  <div class="stats__title-container">
+    <h3 class="stats__title title">
+      <fa-icon [icon]="faSquarePollVertical"></fa-icon>
+      Statistiche
+    </h3>
+  </div>
+
+  <div class="stats__cards-container">
+    <pokemon-stat-card
+      *ngFor="let stat of parsedStats"
+      [stat]="stat"
+    ></pokemon-stat-card>
+  </div>
 </section>

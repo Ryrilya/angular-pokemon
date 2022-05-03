@@ -10,6 +10,8 @@ import { BasicInfoComponent } from './components/basic-info/basic-info.component
 import { DetailsComponent } from './details.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StatsComponent } from './components/stats/stats.component';
+import { StatCardComponent } from './components/stat-card/stat-card.component';
+import { detailsReducer } from './store/details.reducer';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { StatsComponent } from './components/stats/stats.component';
     HeroComponent,
     BasicInfoComponent,
     StatsComponent,
+    StatCardComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { StatsComponent } from './components/stats/stats.component';
     SharedModule,
     FontAwesomeModule,
     StoreModule.forFeature('home', homeReducer),
+    StoreModule.forFeature('details', detailsReducer),
   ],
 })
 export class DetailsModule {}
