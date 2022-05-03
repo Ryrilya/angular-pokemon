@@ -7,6 +7,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { ButtonComponent } from './components/button/button.component';
 import { PaginationSpriteComponent } from './components/pagination/pagination-sprite/pagination-sprite.component';
 import { PokemonTypePillComponent } from './components/pokemon-type-pill/pokemon-type-pill.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PokemonTypePillComponent } from './components/pokemon-type-pill/pokemon
     ButtonComponent,
     PaginationSpriteComponent,
     PokemonTypePillComponent,
+    TabsComponent,
   ],
   imports: [CommonModule, FontAwesomeModule],
   exports: [
@@ -24,6 +26,7 @@ import { PokemonTypePillComponent } from './components/pokemon-type-pill/pokemon
     PaginationComponent,
     ButtonComponent,
     PokemonTypePillComponent,
+    TabsComponent,
   ],
 })
 export class SharedModule {}

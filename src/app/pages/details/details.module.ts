@@ -12,6 +12,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StatsComponent } from './components/stats/stats.component';
 import { StatCardComponent } from './components/stat-card/stat-card.component';
 import { detailsReducer } from './store/details.reducer';
+import { EvolutionLineComponent } from './components/evolution-line/evolution-line.component';
+import { MovesComponent } from './components/moves/moves.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { detailsReducer } from './store/details.reducer';
     BasicInfoComponent,
     StatsComponent,
     StatCardComponent,
+    EvolutionLineComponent,
+    MovesComponent,
   ],
   imports: [
     CommonModule,

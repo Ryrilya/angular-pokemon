@@ -1,0 +1,24 @@
+<div class="tabs" *ngIf="tabs && tabs.length > 0">
+  <div class="tabs__headers">
+    <div
+      *ngFor="let tab of tabs"
+      [class]="{ tab: true, 'tab--active': this.selectedTabId === tab.id }"
+      [style.borderBottomColor]="
+        this.selectedTabId === tab.id ? pokemonColor : 'unset'
+      "
+      (click)="onTabClicked(tab.id)"
+    >
+      <fa-icon
+        *ngIf="tab.icon"
+        [icon]="tab.icon"
+        [style.color]="pokemonColor"
+      ></fa-icon>
+      {{ tab.label }}
+    </div>
+  </div>
+  <div class="tabs__tab-content">
+    <ng-template
+      *ngComponentOutlet="tabs[selectedTabId].component"
+    ></ng-template>
+  </div>
+</div>

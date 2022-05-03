@@ -33,8 +33,8 @@ export class PokemonGridComponent implements OnInit {
 
     this.error$ = this.store.select(HomeSelectors.errorSelector);
 
-    this.pokemonList$ = this.store.select(HomeSelectors.pokemonListSelector);
     this.store.dispatch(HomeActions.loadPokemonList({}));
+    this.pokemonList$ = this.store.select(HomeSelectors.pokemonListSelector);
   }
 
   // Event Handlers

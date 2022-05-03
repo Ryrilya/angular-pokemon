@@ -7,6 +7,16 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 import { State } from './store/details.reducer';
 import * as DetailsActions from './store/details.actions';
 import { pokemonTypesColors } from 'src/app/constants/pokemon-types';
+import { Tab } from 'src/app/shared/components/tabs/tabs.component';
+import {
+  faSquarePollVertical,
+  faDna,
+  faBook,
+} from '@fortawesome/free-solid-svg-icons';
+import { PokemonTypePillComponent } from 'src/app/shared/components/pokemon-type-pill/pokemon-type-pill.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { EvolutionLineComponent } from './components/evolution-line/evolution-line.component';
+import { MovesComponent } from './components/moves/moves.component';
 
 @Component({
   selector: 'app-details',
@@ -17,6 +27,7 @@ export class DetailsComponent implements OnInit {
   pokemonId!: number;
   pokemonDetails!: PokemonDetails;
   pokemonSpecies!: PokemonSpecies;
+  tabs!: Tab[];
 
   constructor(
     private route: ActivatedRoute,
@@ -54,5 +65,26 @@ export class DetailsComponent implements OnInit {
           DetailsActions.updateSpecies({ species: this.pokemonSpecies })
         );
       });
+
+    this.tabs = [
+      {
+        id: 0,
+        label: 'Statistiche',
+        component: StatsComponent,
+        icon: faSquarePollVertical,
+      },
+      {
+        id: 1,
+        label: 'Linea evoluzione',
+        component: EvolutionLineComponent,
+        icon: faDna,
+      },
+      {
+        id: 2,
+        label: 'Mosse',
+        component: MovesComponent,
+        icon: faBook,
+      },
+    ];
   }
 }

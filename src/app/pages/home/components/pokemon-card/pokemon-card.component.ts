@@ -37,6 +37,9 @@ export class PokemonCardComponent implements OnInit {
   }
 
   get detailsUrlPath(): string {
+    if (!this.pokemonDetails || Object.keys(this.pokemonDetails).length === 0)
+      return '';
+
     return `details/${this.pokemonDetails.id}`;
   }
 
