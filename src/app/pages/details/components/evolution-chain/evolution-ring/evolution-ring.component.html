@@ -1,0 +1,31 @@
+<div
+  [class]="['evolution-ring', 'animate__animated', 'animate__zoomIn']"
+  [ngStyle]="{ 'animation-delay': index / 2 + 's' }"
+>
+  <div class="evolution-ring__main-content">
+    <img
+      [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
+      alt=""
+      class="evolution-ring__img"
+    />
+
+    <div class="evolution-ring__info">
+      <span class="evolution-ring__name-and-id">
+        <p class="evolution-ring__pokemon-name">{{ pokemon.name }}</p>
+        <p class="evolution-ring__pokemon-id">#{{ pokemon.id }}</p>
+      </span>
+
+      <span class="evolution-ring__types">
+        <pokemon-type-pill
+          class="evolution-ring__type"
+          *ngFor="let item of pokemon.types"
+          [type]="item.type.name"
+        ></pokemon-type-pill>
+      </span>
+    </div>
+  </div>
+
+  <div class="evolution-ring__next-icon" *ngIf="index + 1 !== ringsNum">
+    <fa-icon [icon]="faArrowRight"></fa-icon>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { PokemonListItem } from '../models/PokemonListItem';
 import { PokemonDetails } from '../models/PokemonDetails';
 import { PokemonSpecies } from '../models/PokemonSpecies';
 import { PokemonGender } from '../models/PokemonGender';
+import { PokemonEvolutionChain } from './../models/PokemonEvolutionChain';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,6 +22,11 @@ export class PokemonService {
 
   constructor(private http: HttpClient) {}
 
+  // General
+  getResourceFromUrl(url: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
+
   getPokemonList(
     limit?: number,
     offset?: number
@@ -35,10 +41,6 @@ export class PokemonService {
   // Details
   getPokemonDetailsFromName(name: string): Observable<PokemonDetails> {
     return this.http.get<PokemonDetails>(`${this.apiUrl}/pokemon/${name}`);
-  }
-
-  getPokemonDetailsFromUrl(url: string): Observable<PokemonDetails> {
-    return this.http.get<PokemonDetails>(url);
   }
 
   getPokemonDetailsFromId(id: number): Observable<PokemonDetails> {
@@ -65,5 +67,10 @@ export class PokemonService {
 
   getPokemonGenderById(id: number): Observable<PokemonGender> {
     return this.http.get<PokemonGender>(`${this.apiUrl}/gender/${id}`);
+  }
+
+  // Evolution
+  getPokemonEvolutionChain(url: string): Observable<PokemonEvolutionChain> {
+    return this.http.get<PokemonEvolutionChain>(url);
   }
 }

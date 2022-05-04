@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EvolutionLineComponent } from './evolution-line.component';
+import { EvolutionRingComponent } from './evolution-ring.component';
 
-describe('EvolutionLineComponent', () => {
-  let component: EvolutionLineComponent;
-  let fixture: ComponentFixture<EvolutionLineComponent>;
+describe('EvolutionRingComponent', () => {
+  let component: EvolutionRingComponent;
+  let fixture: ComponentFixture<EvolutionRingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EvolutionLineComponent ]
+      declarations: [ EvolutionRingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EvolutionLineComponent);
+    fixture = TestBed.createComponent(EvolutionRingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

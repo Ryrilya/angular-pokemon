@@ -32,8 +32,8 @@ export class PokemonCardComponent implements OnInit {
     // }
 
     this.pokemonService
-      .getPokemonDetailsFromUrl(this.pokemon.url)
-      .subscribe((result) => (this.pokemonDetails = result));
+      .getResourceFromUrl(this.pokemon.url)
+      .subscribe((result: PokemonDetails) => (this.pokemonDetails = result));
   }
 
   get detailsUrlPath(): string {

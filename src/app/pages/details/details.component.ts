@@ -13,9 +13,8 @@ import {
   faDna,
   faBook,
 } from '@fortawesome/free-solid-svg-icons';
-import { PokemonTypePillComponent } from 'src/app/shared/components/pokemon-type-pill/pokemon-type-pill.component';
 import { StatsComponent } from './components/stats/stats.component';
-import { EvolutionLineComponent } from './components/evolution-line/evolution-line.component';
+import { EvolutionChainComponent } from './components/evolution-chain/evolution-chain.component';
 import { MovesComponent } from './components/moves/moves.component';
 
 @Component({
@@ -76,7 +75,7 @@ export class DetailsComponent implements OnInit {
       {
         id: 1,
         label: 'Linea evoluzione',
-        component: EvolutionLineComponent,
+        component: EvolutionChainComponent,
         icon: faDna,
       },
       {

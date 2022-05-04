@@ -12,8 +12,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StatsComponent } from './components/stats/stats.component';
 import { StatCardComponent } from './components/stat-card/stat-card.component';
 import { detailsReducer } from './store/details.reducer';
-import { EvolutionLineComponent } from './components/evolution-line/evolution-line.component';
+import { EvolutionChainComponent } from './components/evolution-chain/evolution-chain.component';
 import { MovesComponent } from './components/moves/moves.component';
+import { EvolutionRingComponent } from './components/evolution-chain/evolution-ring/evolution-ring.component';
+import { EffectsModule } from '@ngrx/effects';
+import { DetailsEffect } from './store/details.effects';
 
 @NgModule({
   declarations: [
@@ -23,8 +26,9 @@ import { MovesComponent } from './components/moves/moves.component';
     BasicInfoComponent,
     StatsComponent,
     StatCardComponent,
-    EvolutionLineComponent,
+    EvolutionChainComponent,
     MovesComponent,
+    EvolutionRingComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +37,7 @@ import { MovesComponent } from './components/moves/moves.component';
     FontAwesomeModule,
     StoreModule.forFeature('home', homeReducer),
     StoreModule.forFeature('details', detailsReducer),
+    EffectsModule.forFeature([DetailsEffect]),
   ],
 })
 export class DetailsModule {}

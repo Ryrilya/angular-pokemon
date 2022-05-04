@@ -42,6 +42,10 @@ export class StatsComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    console.log('[Stats] Component destroyed');
+  }
+
   /** Converts pokemon's stats into a format needed for template */
   parseStats(stats: PokemonDetails['stats']): void {
     this.parsedStats = this.stats.map((item): ParsedStat => {

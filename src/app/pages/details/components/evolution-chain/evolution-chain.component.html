@@ -1,0 +1,8 @@
+<div *ngIf="evolutionChainRings" class="evolution-chain">
+  <evolution-ring
+    *ngFor="let ring of evolutionChainRings; index as i"
+    [pokemon]="ring"
+    [index]="i"
+    [ringsNum]="evolutionChainRings.length"
+  ></evolution-ring>
+</div>

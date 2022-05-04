@@ -13,6 +13,11 @@ export const speciesSelector = createSelector(
   (state) => state.species
 );
 
+export const evolutionChainSelector = createSelector(
+  detailsFeature,
+  (state) => state.evolutionChain
+);
+
 export const colorSelector = createSelector(
   detailsFeature,
   (state) => state.color

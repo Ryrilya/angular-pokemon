@@ -36,7 +36,7 @@ export class HomeEffects {
 
         if (by === 'name')
           call = this.pokemonService.getPokemonDetailsFromName(value);
-        else call = this.pokemonService.getPokemonDetailsFromUrl(value);
+        else call = this.pokemonService.getResourceFromUrl(value);
 
         return call.pipe(
           map((pokemonDetails) =>

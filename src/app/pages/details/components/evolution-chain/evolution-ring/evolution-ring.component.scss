@@ -1,0 +1,53 @@
+.evolution-ring {
+  display: flex;
+  align-items: center;
+
+  &__main-content {
+    position: relative;
+    flex: 2;
+  }
+
+  &__info {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  &__name-and-id {
+    display: flex;
+    align-items: center;
+  }
+
+  &__pokemon-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-right: 1rem;
+  }
+
+  &__types {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__type {
+    margin-right: 0.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__next-icon {
+    flex: 1;
+    color: #fff;
+    font-size: 2rem;
+    margin: 0 3rem;
+  }
+}
