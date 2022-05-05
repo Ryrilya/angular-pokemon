@@ -17,6 +17,8 @@ import { MovesComponent } from './components/moves/moves.component';
 import { EvolutionRingComponent } from './components/evolution-chain/evolution-ring/evolution-ring.component';
 import { EffectsModule } from '@ngrx/effects';
 import { DetailsEffect } from './store/details.effects';
+import { LevelUpMovesComponent } from './components/moves/level-up-moves/level-up-moves.component';
+import { MachineMovesComponent } from './components/moves/machine-moves/machine-moves.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { DetailsEffect } from './store/details.effects';
     EvolutionChainComponent,
     MovesComponent,
     EvolutionRingComponent,
+    LevelUpMovesComponent,
+    MachineMovesComponent,
   ],
   imports: [
     CommonModule,

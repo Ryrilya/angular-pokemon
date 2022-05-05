@@ -1,0 +1,39 @@
+@use "../pokemon-type-pill/pokemon-type-pill.component.scss";
+
+.table {
+  display: block;
+  border-collapse: collapse;
+  max-width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  height: 500px;
+  overflow-y: auto;
+
+  &__header {
+    text-align: left;
+    color: grey;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+  }
+
+  &__row {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+
+    &:hover {
+      background-color: #ddddddaa;
+    }
+  }
+
+  &__cell {
+    color: #fff;
+    padding: 0.8rem 1rem;
+    font-weight: 400;
+
+    &:nth-child(2) {
+      width: 100%;
+    }
+  }
+}

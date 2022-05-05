@@ -23,8 +23,8 @@ export class PokemonService {
   constructor(private http: HttpClient) {}
 
   // General
-  getResourceFromUrl(url: string): Observable<any> {
-    return this.http.get<any>(url);
+  getResourceFromUrl<T extends any>(url: string): Observable<T> {
+    return this.http.get<T>(url);
   }
 
   getPokemonList(

@@ -1,0 +1,13 @@
+<div class="level-up-moves animate__animated animate__fadeInLeft">
+  <h3 class="level-up-moves__title title">
+    <fa-icon [icon]="faTurnUp"></fa-icon>
+    Imparate per livello
+  </h3>
+
+  <my-table
+    class="level-up-moves__table"
+    *ngIf="movesByLevel && movesByLevel.data.length > 0"
+    [headers]="movesByLevel.headers"
+    [data]="movesByLevel.data"
+  ></my-table>
+</div>

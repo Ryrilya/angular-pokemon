@@ -1,0 +1,20 @@
+.machine-moves {
+  &__loader {
+    min-width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-width: 250px;
+      max-height: 250px;
+    }
+
+    p {
+      color: #fff;
+      text-align: center;
+    }
+  }
+}

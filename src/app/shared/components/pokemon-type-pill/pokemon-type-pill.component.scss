@@ -8,6 +8,7 @@ $text-light: #fff;
   padding: 0.5rem 0.8rem;
   text-transform: capitalize;
   font-weight: bold;
+  text-align: center;
 
   // Generate a class for every type
   @each $type, $color in global.$types-colors {

@@ -23,9 +23,9 @@ import { MovesComponent } from './components/moves/moves.component';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  pokemonId!: number;
-  pokemonDetails!: PokemonDetails;
-  pokemonSpecies!: PokemonSpecies;
+  pokemonId!: number | null;
+  pokemonDetails!: PokemonDetails | null;
+  pokemonSpecies!: PokemonSpecies | null;
   tabs!: Tab[];
 
   constructor(
@@ -38,6 +38,31 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe(
       (params) => (this.pokemonId = parseInt(params['id']))
     );
+
+    this.tabs = [
+      {
+        id: 0,
+        label: 'Statistiche',
+        component: StatsComponent,
+        icon: faSquarePollVertical,
+      },
+      {
+        id: 1,
+        label: 'Linea evoluzione',
+        component: EvolutionChainComponent,
+        icon: faDna,
+      },
+      {
+        id: 2,
+        label: 'Mosse',
+        component: MovesComponent,
+        icon: faBook,
+      },
+    ];
+  }
+
+  ngAfterViewInit(): void {
+    if (!this.pokemonId) return;
 
     this.pokemonService
       .getPokemonDetailsFromId(this.pokemonId)
@@ -64,26 +89,11 @@ export class DetailsComponent implements OnInit {
           DetailsActions.updateSpecies({ species: this.pokemonSpecies })
         );
       });
+  }
 
-    this.tabs = [
-      {
-        id: 0,
-        label: 'Statistiche',
-        component: StatsComponent,
-        icon: faSquarePollVertical,
-      },
-      {
-        id: 1,
-        label: 'Linea evoluzione',
-        component: EvolutionChainComponent,
-        icon: faDna,
-      },
-      {
-        id: 2,
-        label: 'Mosse',
-        component: MovesComponent,
-        icon: faBook,
-      },
-    ];
+  ngOnDestroy(): void {
+    this.pokemonDetails = null;
+    this.pokemonId = null;
+    this.pokemonSpecies = null;
   }
 }

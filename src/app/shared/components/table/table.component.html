@@ -1,0 +1,26 @@
+<table class="table" *ngIf="data && headers">
+  <thead class="table__headers-container">
+    <tr class="table__headers">
+      <th *ngFor="let header of headers" class="table__header">
+        <fa-icon *ngIf="header.icon" [icon]="header.icon"></fa-icon>
+        {{ header.text }}
+      </th>
+    </tr>
+  </thead>
+  <tbody class="table__body">
+    <tr *ngFor="let row of data" class="table__row">
+      <td *ngFor="let cell of parseRow(row)" class="table__cell">
+        <div
+          *ngIf="cell.key === 'type'; else notTypeCell"
+          [class]="['pokemon-type-pill', 'pokemon-type-pill--' + cell.value]"
+        >
+          {{ getItalianTypeName(cell.value) }}
+        </div>
+
+        <ng-template #notTypeCell>
+          {{ cell.value }}
+        </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

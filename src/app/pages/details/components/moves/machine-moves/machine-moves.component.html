@@ -1,0 +1,23 @@
+<div class="machine-moves animate__animated animate__fadeInRight">
+  <h3 class="machine-moves__title title">
+    <fa-icon [icon]="faCompactDisc"></fa-icon>
+    Imparate da macchine
+  </h3>
+
+  <my-table
+    class="machine-moves__table"
+    *ngIf="
+      movesByMachine && movesByMachine.data.length > 0;
+      else isFetchingBlock
+    "
+    [headers]="movesByMachine.headers"
+    [data]="movesByMachine.data"
+  ></my-table>
+
+  <ng-template #isFetchingBlock>
+    <div class="machine-moves__loader">
+      <img src="/assets/images/loader.gif" />
+      <p>Stiamo chiedendo al prof. Oak...</p>
+    </div>
+  </ng-template>
+</div>
